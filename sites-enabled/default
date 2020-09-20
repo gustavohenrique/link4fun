@@ -1,0 +1,127 @@
+server {
+    listen 80 default_server;
+    root /var/www/html;
+    index index.html index.nginx-debian.html;
+    resolver 8.8.8.8;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    location ~* /(?<code>[a-z0-9]+)/?$ {
+        default_type "text/html";
+        content_by_lua_block {
+            local resolver = require "resty.dns.resolver"
+            local r, err = resolver:new{
+                nameservers = {"8.8.8.8", {"8.8.4.4", 53} },
+                retrans = 5,
+                timeout = 2000,
+            }
+            if not r then
+                ngx.say("failed to instantiate the resolver: ", err)
+                return
+            end
+
+            local domain = ngx.var.code .. ".link4.fun"
+            local answers, err, tries = r:query(domain, { qtype = resolver.TYPE_TXT }, {})
+            if not answers then
+                ngx.say("failed to query the DNS server: ", err)
+                ngx.say("retry history:\n  ", table.concat(tries, "\n  "))
+                return
+            end
+
+            if answers.errcode then
+                ngx.say("server returned error code: ", answers.errcode, ": ", answers.errstr)
+            end
+
+            for i, ans in ipairs(answers) do
+                local url = ngx.decode_base64(ans.txt)
+                return ngx.redirect(url, 302)
+            end
+        }
+    }
+
+    location = /shortner {
+        default_type "text/html";
+        client_max_body_size 50k;
+        client_body_buffer_size 50k;
+
+        content_by_lua_block {
+            ngx.req.read_body()
+            local method = ngx.req.get_method()
+            if method == "POST" then
+                local args, err = ngx.req.get_post_args(2)
+                if err == "truncated" then
+                    ngx.say("error: only one POST parameter allowed.")
+                    ngx.exit(403)
+                end
+                if not args then
+                    ngx.say("error: failed to get post args: ", err)
+                    ngx.exit(500)
+                end
+                
+                local site_url = args.site_url
+                local code = args.code
+                if site_url == nill or site_url == "" then then
+                    ngx.say("error: required parameter 'site_url' is empty")
+                    ngx.exit(400)
+                end
+
+                if code == nill or code == "" then then
+                    math.randomseed(os.clock()+os.time())
+                    local random = math.random
+                    local function randid()
+                        local template ='xxxx4xxxxxxyxxxx'
+                        return string.gsub(template, '[xy]', function (c)
+                            local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
+                            return string.format('%x', v)
+                        end)
+                    end
+                    code = randid()
+                end
+
+                local encoded_site_url = ngx.encode_base64(site_url)
+                local token = "<token-here>"
+                
+                require "cjson"
+                local data = {
+                    type = "TXT",
+                    name = code,
+                    data = encoded_site_url,
+                    ttl = 31,
+                    priority = nill,
+                    port = nill,
+                    weight = nill,
+                    flags = nill,
+                    tag = nill
+                }
+                local json_text = cjson.encode(data)
+
+                local http = require "resty.http"
+                local httpc = http.new()
+                local res, err = httpc:request_uri("https://api.digitalocean.com/v2/domains/link4.fun/records", {
+                    method = "POST",
+                    body = json_text,
+                    headers = {
+                      ["Content-Type"] = "application/json",
+                      ["Authorization"] = "Bearer " .. token
+                    },
+                    keepalive = false,
+                    keepalive_timeout = 60000,
+                    keepalive_pool = 10,
+                    ssl_verify = false
+                })
+
+                if not res then
+                    ngx.say("error: failed to request: ", err)
+                    return
+                end
+
+                if res.status > 201 then
+                    ngx.say("error: failed to create TXT record.")
+                    return
+                end
+
+                return ngx.redirect("/?code=" .. code)
+            end
+        }
+    }
+}
