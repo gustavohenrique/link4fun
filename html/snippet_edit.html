@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Link4Fun</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Link4Fun is an URL shortener and tool that you can use to store text online">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=0.9, maximum-scale=5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://link4.fun/">
+  <meta property="og:title" content="Link4Fun">
+  <meta property="og:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="og:image" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://link4.fun">
+  <meta property="twitter:title" content="Link4Fun">
+  <meta property="twitter:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="twitter:image" content="">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation" style="z-index:0">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">
+        <span>Link4Fun</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h1 class="is-size-3">Edit snippet {{code}}</h1>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <form action="/snippet" method="post">
+            <input type="hidden" name="code" value="{{code}}" />
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea is-medium" name="snippet" placeholder="Paste your snippet here" rows="20">{{snippet}}</textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-body">
+                <div class="field has-addons">
+                  <div class="control is-expanded">
+                    <div class="select is-large">
+                      <select name="syntax">
+                        <option value="plaintext">Syntax Highlight</option>
+                        <option value="bash">Bash</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                        <option value="cs">C#</option>
+                        <option value="dart">Dart</option>
+                        <option value="dockerfile">Dockerfile</option>
+                        <option value="elixir">Elixir</option>
+                        <option value="golang">Golang</option>
+                        <option value="html">HTML</option>
+                        <option value="java">Java</option>
+                        <option value="javascript">Javascript</option>
+                        <option value="json">JSON</option>
+                        <option value="kotlin">Kotlin</option>
+                        <option value="lua">Lua</option>
+                        <option value="makefile">Makefile</option>
+                        <option value="markdown">Markdown</option>
+                        <option value="nginx">Nginx configuration</option>
+                        <option value="protobuf">Protobuf</option>
+                        <option value="python">Python</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="rust">Rust</option>
+                        <option value="sh">Shell Script</option>
+                        <option value="sql">SQL</option>
+                        <option value="toml">TOML</option>
+                        <option value="ts">Typescript</option>
+                        <option value="yaml">YAML</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <a href="/1/{{code}}" class="button is-large" style="margin-right:10px">Cancel</a>
+                    <button type="submit" class="button is-link is-large">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+

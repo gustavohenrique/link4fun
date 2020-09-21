@@ -1,0 +1,33 @@
+<footer class="card-footer social">
+  <p class="card-footer-item">
+    <a href="https://twitter.com/intent/tweet?text={{ escaped_url }}">
+      <img src="/statics/social/twitter.svg" title="Send to Twitter" alt="Twitter" />
+    </a>
+  </p>
+  <p class="card-footer-item">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ escaped_url }}&amp;src=sdkpreparse">
+      <img src="/statics/social/facebook.svg" title="Send to Facebook" alt="Facebook" />
+    </a>
+  </p>
+  <p class="card-footer-item">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ unescaped_url }}">
+      <img src="/statics/social/linkedin.svg" title="Send to Linkedin" alt="Linkedin" />
+    </a>
+  </p>
+  <p class="card-footer-item">
+    <a href="https://wa.me/?text={{ escaped_url }}" target="_blank">
+      <img src="/statics/social/whatsapp.svg" title="Send to Whatsapp" alt="Whatsapp" />
+    </a>
+  </p>
+  <p class="card-footer-item">
+    <button class="button is-black" onclick="copy('{{ unescaped_url }}')">Copy</button>
+  </p>
+</footer>
+
+<style type="text/css">
+.social img {
+  height: 30px;
+  margin-right: 15px;
+}
+</style>
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Link4Fun</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Link4Fun is an URL shortener and tool that you can use to store text online">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=0.9, maximum-scale=5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://link4.fun/">
+  <meta property="og:title" content="Link4Fun">
+  <meta property="og:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="og:image" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://link4.fun">
+  <meta property="twitter:title" content="Link4Fun">
+  <meta property="twitter:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="twitter:image" content="">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="../styles/default.css">
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation" style="z-index:0">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">
+        <span>Link4Fun</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h1 class="is-size-3">Snippet URL</h1>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="field">
+            <div class="field-body">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input is-medium" type="text" value="https://link4.fun/1/{{code}}" readonly/>
+                </div>
+                <div class="control">
+                  <button type="submit" class="button is-black is-medium" onclick="copy('https://link4.fun/1/{{code}}')">Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="panel">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Syntax: {{syntax}}</p>
+          <a href="/snippet/{{code}}" class="button is-link" aria-label="edit">Edit</a>
+        </header>
+        <pre style="background:transparent;">
+          <code class="{{syntax}} is-size-6" style="background:white">{{snippet}}</code>
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <script src="../highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,88 @@
+location = / {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/main.lua";
+}
+
+location = /shortener {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/shortener/main.lua";
+}
+
+location ~* ^/0\/(?<code>[a-z0-9]+)/?$ {
+    add_header Last-Modified $date_gmt;
+    add_header Cache-Control 'no-store';
+    if_modified_since off;
+    expires off;
+    etag off;
+    proxy_no_cache 1;
+    proxy_cache_bypass 1;
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/shortener/details.lua";
+}
+
+location ~* ^/1\/(?<code>[a-z0-9]+)/?$ {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/snippet/details.lua";
+}
+
+location ~* ^/snippet\/(?<code>[a-z0-9]+)/?$ {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/snippet/edit.lua";
+}
+
+location ~* ^/2\/(?<code>[a-z0-9]+)/?$ {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/markdown/details.lua";
+}
+
+location ~* ^/markdown\/(?<code>[a-z0-9]+)/?$ {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/markdown/edit.lua";
+}
+
+# location ~* (.*/md)/(?<filename>.+\.html)$ {
+# ssi on;
+# rewrite ^(/md/) /markdowns/index.html break;
+# }
+location ~* (.*/md)/(?<code>[a-z0-9]+)(?<extension>.html|.md|)$ {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/markdown/details.lua";
+}
+
+location ~* /(?<code>[a-z0-9]+)/?$ {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/shortener/redirect.lua";
+}
+
+location = /shortener/save {
+    default_type "text/html";
+    client_max_body_size 50k;
+    client_body_buffer_size 50k;
+    content_by_lua_file "/var/www/lua/shortener/save.lua";
+}
+
+location = /snippet {
+    default_type "text/html";
+    client_max_body_size 250k;
+    client_body_buffer_size 250k;
+    content_by_lua_file "/var/www/lua/snippet/save.lua";
+}
+
+location = /markdown {
+    default_type "text/html";
+    client_max_body_size 250k;
+    client_body_buffer_size 250k;
+    content_by_lua_file "/var/www/lua/markdown/save.lua";
+}
+
+location = /login {
+    default_type "text/html";
+    client_max_body_size 50k;
+    client_body_buffer_size 50k;
+    content_by_lua_file "/var/www/lua/auth/login.lua";
+}
+
+location = /logout {
+    default_type "text/html";
+    content_by_lua_file "/var/www/lua/auth/logout.lua";
+}

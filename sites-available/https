@@ -1,0 +1,22 @@
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name _;
+    ssl_certificate     /home/ubuntu/letsencrypt/config/live/link4.fun/fullchain.pem;
+    ssl_certificate_key /home/ubuntu/letsencrypt/config/live/link4.fun/privkey.pem;
+    root /var/www/html;
+    index index.html index.nginx-debian.html;
+    resolver 8.8.8.8;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    set $template_root /var/www/html/templates;
+    include /etc/nginx/sites-available/routes/routes.locations;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+    return 301 https://$host$request_uri;
+}

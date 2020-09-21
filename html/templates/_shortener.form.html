@@ -1,0 +1,20 @@
+<form action="/shortener/save" method="post">
+  <div class="field">
+    <div class="field-body">
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <input type="text" class="input" name="url" placeholder="Paste the long link here" />
+        </div>
+        <div class="control">
+          <button
+            type="submit"
+            class="button is-link"
+            {% if not username then %}disabled{% end %}
+          >
+            Shorten URL
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

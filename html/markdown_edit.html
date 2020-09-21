@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Link4Fun</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Link4Fun is an URL shortener and tool that you can use to store text online">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=0.9, maximum-scale=5">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://link4.fun/">
+  <meta property="og:title" content="Link4Fun">
+  <meta property="og:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="og:image" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://link4.fun">
+  <meta property="twitter:title" content="Link4Fun">
+  <meta property="twitter:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="twitter:image" content="">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation" style="z-index:0">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">
+        <span>Link4Fun</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h1 class="is-size-3">Edit markdown {{code}}</h1>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <form action="/markdown" method="post">
+            <input type="hidden" name="code" value="{{code}}" />
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea is-medium" name="markdown" placeholder="Paste your markdown here" rows="20">{{markdown}}</textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control" style="text-align:right">
+                <a href="/2/{{code}}" class="button is-large" style="margin-right:10px">Cancel</a>
+                <button type="submit" class="button is-link is-large">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
