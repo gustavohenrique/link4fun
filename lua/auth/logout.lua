@@ -1,7 +1,2 @@
-package.path = '/var/www/lua/libs/?.lua;' .. package.path
-
-ngx.header["Set-Cookie"] = {}
-local template = require "resty.template"
-template.render("index.html", {
-    username = nil
-})
+ngx.header["Set-Cookie"] = "Link4Fun=" .. "; Path=/; HttpOnly; Expires=" .. ngx.cookie_time(ngx.time() - 86400) .. ";"
+return ngx.redirect("/login")

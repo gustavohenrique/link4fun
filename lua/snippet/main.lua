@@ -4,6 +4,7 @@ local constants = require "constants"
 local username = ngx.var[constants.COOKIE_NAME]
 
 local template = require "resty.template"
-template.render("index.html", {
-    username = username
+template.render("snippet.html", {
+    username = username,
+    syntaxes = constants.SYNTAXES
 })

@@ -1,19 +1,19 @@
 local M = {}
 
-function M.getHtmlFilePath()
-    return "/var/www/html"
+function M.get_root_dir()
+    return "/var/www/data"
 end
 
-function M.getLinkFilePath(name)
-    return "/var/www/html/links/" .. name
+function M.get_shortener_file(filename)
+    return M.get_root_dir() .. "/shortener/" .. filename
 end
 
-function M.getSnippetFilePath(name)
-    return "/var/www/html/snippets/" .. name
+function M.get_snippet_file(filename)
+    return M.get_root_dir() .. "/snippet/" .. filename
 end
 
-function M.getMarkdownFilePath(name)
-    return "/var/www/html/markdowns/" .. name
+function M.get_markdown_file(filename)
+    return M.get_root_dir() .. "/markdown/" .. filename
 end
 
 return M

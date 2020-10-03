@@ -1,57 +1,45 @@
 {% layout = "base.html" %}
 {-main-}
-  <section class="section">
-    <div class="container">
-      <h1 class="title">URL Shortener</h1>
-      <h2 class="subtitle">Transform long links into shorts</h2>
+<section class="section">
+  <div class="container">
+    <h1 class="title">URL Shortener</h1>
+    <h2 class="subtitle">Transform long links into shorts</h2>
+    <div class="card">
+      <div class="card-content">
+        {(_shortener.form.html)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section p-0">
+  <div class="container">
+    <div class="lf-grid">
       <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Share it
+          </p>
+        </header>
         <div class="card-content">
-          {(_shortener.form.html)}
+          <h5 class="subtitle is-5">
+            {{ unescaped_url }}
+          </h5>
+        </div>
+        {(_social.footer.html)}
+      </div>
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Info
+          </p>
+        </header>
+        <div class="card-content">
+          <h5 class="subtitle is-5 mb-2">{{ url }}</h5>
+          <h6 class="subtitle is-6">{{ clicks }} clicks</h6>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="grid">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              Share it
-            </p>
-          </header>
-          <div class="card-content">
-            <h5 class="subtitle is-5">
-              {{ unescaped_url }}
-            </h5>
-          </div>
-          {(_social.footer.html)}
-        </div>
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              Info
-            </p>
-          </header>
-          <div class="card-content">
-            <h5 class="subtitle is-5 mb-2">{{ url }}</h5>
-            <h6 class="subtitle is-6">{{ clicks }} clicks</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script src="/statics/main.js"></script>
-
-  <style type="text/css">
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 16px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  </style>
+  </div>
+</section>
 {-main-}

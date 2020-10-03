@@ -13,6 +13,15 @@ function M.startswith(s, value)
     return string.sub(s, 1, string.len(value)) == value
 end
 
+function M.has_at_least_one(s, array)
+    for _, item in pairs(array) do
+        if M.startswith(s, item) then
+            return true
+        end
+    end
+    return false
+end
+
 function M.random(template)
     math.randomseed(os.clock()+os.time())
     local rnd = math.random
@@ -25,11 +34,19 @@ function M.random(template)
     return randid()
 end
 
-function M.toJson(content)
+function M.is_valid_url(url)
+    if url == nill or url == "" then
+        return false
+    end
+    local i, _ = string.find(url, "://", 1, true)
+    return i ~= nill
+end
+
+function M.to_json(content)
     return cjson.encode(content)
 end
 
-function M.fromJson(content)
+function M.from_json(content)
     return cjson.decode(content)
 end
 

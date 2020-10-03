@@ -2,29 +2,30 @@
 {-main-}
   <section class="section">
     <div class="container">
-      {% if not username or username == "" then %}
-      <div class="card">
-        <header class="card-header">
-          <p class="card-header-title">
-            Authentication
-          </p>
-        </header>
-        <p class="card-content">
-          Only me, <a href="https://twitter.com/@gustavohenriq" target="_blank">Gustavo Henrique</a>, is allowed to authenticate. Sorry!
-        </p>
-        {(_auth.form.html)}
-      </div>
-      {% else %}
-      <section class="hero is-light">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              Hi, {{ username }}!
-            </h1>
-          </div>
+      <h2 class="title">Link4Fun</h2>
+      <h3 class="subtitle">
+        Link4Fun my personal project using Lua + OpenResty and it allows me to create a short URL of the content I'd to share.
+      </h3>
+      <div class="mt-6">
+        <h3 class="subtitle is-4">Features:</h3>
+        <div class="content">
+          <ul>
+            <li>Fast URL shortener</li>
+            <li>Markdown editor with syntax highlight support</li>
+            <li>Create markdowns up to 100K</li>
+            <li>Create snippets for multi-languages up to 50K</li>
+            <li>Dark mode according to your browser preferences</li>
+          </ul>
         </div>
-      </section>
-      {% end %}
+
+        <h3 class="subtitle is-4">Pay attention:</h3>
+        <div class="content">
+          <ul>
+            <li>All data are public</li>
+            <li>Data can be removed if the content is considered inappropriate by me</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 {-main-}

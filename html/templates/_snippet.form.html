@@ -1,0 +1,31 @@
+<form action="/snippet/save" method="post" class="card lf-full-height lf-flex-container lf-flex-columns lf-justify-between">
+  {% if code then %}
+  <input type="hidden" name="code" value="{{ code }}" />
+  {% end %}
+  <div class="lf-full-height">
+    <textarea class="textarea lf-full-height" name="snippet" placeholder="Paste your snippet here" rows="20">{{ snippet }}</textarea>
+  </div>
+
+  <footer class="card-footer">
+    <div class="card-footer-item lf-left">
+      <div class="select is-fullwidth">
+        <select name="syntax">
+          <option value="plaintext">Syntax Highlight</option>
+          {% for value, label in pairs(syntaxes) do %}
+          <option value="{{ value }}" {% if value == syntax then %}selected{% end %}>
+          {{ label }}
+          </option>
+          {% end %}
+        </select>
+      </div>
+    </div>
+    <div class="card-footer-item lf-right">
+      <button
+        type="submit"
+        class="button is-link"
+      >
+        Save
+      </button>
+    </div>
+  </footer>
+</form>

@@ -1,0 +1,40 @@
+{% layout = "base.html" %}
+{-css-}
+<link rel="stylesheet" href="/static/codemirror-5.58.1/codemirror.min.css" />
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="/static/codemirror-5.58.1/tomorrow-night-eighties.min.css" />
+{-css-}
+
+{-main-}
+<section class="section lf-fit">
+  <div class="container lf-full-height">
+    <div class="lf-flex-container lf-flex-columns lf-full-height">
+      <h1 class="title">Markdown Editor</h1>
+      <h2 class="subtitle">Improve your text readability writing on Markdown format</h2>
+      {(_markdown.form.html)}
+    </div>
+  </div>
+</section>
+
+<script src="/static/codemirror-5.58.1/codemirror.min.js"></script>
+<script src="/static/codemirror-5.58.1/addon/fold/markdown-fold.min.js"></script>
+<script src="/static/codemirror-5.58.1/addon/mode/overlay.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/xml/xml.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/markdown/markdown.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/clike/clike.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/meta.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/javascript/javascript.min.js"></script>
+<script src="/static/codemirror-5.58.1/mode/gfm/gfm.min.js"></script>
+
+<script>
+  const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const textarea = document.querySelector('textarea');
+  CodeMirror.fromTextArea(textarea, {
+    lineNumbers: true,
+    theme: isDarkMode ? 'tomorrow-night-eighties' : 'default',
+    mode: {
+      name: 'gfm'
+    }
+  });
+</script>
+{-main-}

@@ -9,8 +9,20 @@ server {
     resolver 8.8.8.8;
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
+    default_type "text/html";
+
+    location ~* ^.+\.(jpg|jpeg|gif|ico|png|svg|woff|woff2)$ {
+        access_log   off;
+        expires      5d;
+    }
+
+    if ($http_cookie !~* "Link4Fun" ) {
+        set $no_auth true;
+    }
 
     set $template_root /var/www/html/templates;
+    set $unescaped_url https://link4.fun;
+    set_escape_uri $escaped_url $unescaped_url;
     include /etc/nginx/sites-available/routes/routes.locations;
 }
 

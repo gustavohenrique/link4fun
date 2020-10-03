@@ -1,27 +1,28 @@
-package.path = '/etc/nginx/conf.d/libs/?.lua;' .. package.path
+package.path = '/var/www/lua/libs/?.lua;' .. package.path
 
 local fileutils = require "fileutils"
-local filepath = fileutils.getSnippetFilePath(ngx.var.code)
-local file, err = io.open(filepath, "r")
-if file == nill then
+local filename = fileutils.get_snippet_file(ngx.var.code)
+local file, err = io.open(filename, "r")
+if not file then
     ngx.say("error: couldnt open file: ", err)
     ngx.exit(500)
 end 
 content = file:read()
-if content == nill or content == "" then
+if not content or content == "" then
     ngx.say("error: file is empty")
     ngx.exit(500)
 end
 file:close()
 
 local stringutils = require "stringutils";
-local map = stringutils.fromJson(content)
-
+local map = stringutils.from_json(content)
+local constants = require "constants"
+local username = ngx.var[constants.COOKIE_NAME]
 local template = require "resty.template"
-local view = template.new "snippet_edit.html"
-view.code = ngx.var.code
-view.syntax = map.syntax
-view.snippet = map.snippet
-view:render()
-
-
+template.render("snippet.html", {
+    username = username,
+    code = ngx.var.code,
+    syntaxes = constants.SYNTAXES,
+    snippet = map.snippet,
+    syntax = map.syntax
+})
