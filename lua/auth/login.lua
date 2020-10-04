@@ -18,7 +18,7 @@ local username = form.username
 local password = form.password
 local auth = require "auth"
 if not auth.login(username, password) then
-    ngx.say("error: invalid username or password")
+    ngx.say("error: invalid username or password.")
     ngx.exit(401)
 end
 

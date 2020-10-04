@@ -1,8 +1,8 @@
 local M = {}
 
 local user = {
-  username = "gustavo",
-  password = "henrique"
+  username = "demo",
+  password = "demo"
 }
 
 function M.login(username, password)
