@@ -1,6 +1,6 @@
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80 http2 default_server;
+    listen [::]:80 http2 default_server;
     server_name _;
     root /var/www/html;
     index index.html;
@@ -8,11 +8,7 @@ server {
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
     default_type "text/html";
-
-    location ~* ^.+\.(jpg|jpeg|gif|ico|png|svg|woff|woff2)$ {
-        access_log   off;
-        expires      5d;
-    }
+    access_log   off;
 
     if ($http_cookie !~* "Link4Fun" ) {
         set $no_auth true;
