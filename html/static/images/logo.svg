@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="104.6164mm"
+   height="17.596178mm"
+   viewBox="0 0 104.6164 17.596178"
+   version="1.1"
+   id="svg1116">
+  <defs
+     id="defs1110" />
+  <metadata
+     id="metadata1113">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-19.21512,-88.719765)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:8.71964px;line-height:1.25;font-family:sans-serif;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="64.097183"
+       y="112.36423"
+       id="text1074"
+       transform="scale(1.0573527,0.94575821)"><tspan
+         id="tspan1072"
+         x="64.097183"
+         y="112.36423"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.159px;font-family:Horizon;-inkscape-font-specification:Horizon;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.0878px;line-height:1.25;font-family:sans-serif;letter-spacing:0.79375px;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="41.039013"
+       y="101.36655"
+       id="text1078"
+       transform="scale(0.95450068,1.0476682)"><tspan
+         id="tspan1076"
+         x="41.039013"
+         y="101.36655"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8715px;font-family:Gentona;-inkscape-font-specification:Gentona;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">nk</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.0878px;line-height:1.25;font-family:sans-serif;letter-spacing:0.79375px;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="86.286774"
+       y="101.2458"
+       id="text1082"
+       transform="scale(0.95450068,1.0476682)"><tspan
+         id="tspan1080"
+         x="86.286774"
+         y="101.2458"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8715px;font-family:Gentona;-inkscape-font-specification:Gentona;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Fun</tspan></text>
+    <rect
+       style="fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect1084"
+       width="4.66083"
+       height="4.147768"
+       x="32.963005"
+       y="88.719765" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:11.0878px;line-height:1.25;font-family:sans-serif;letter-spacing:0.79375px;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="18.863367"
+       y="101.36655"
+       id="text1088"
+       transform="scale(0.95450068,1.0476682)"><tspan
+         id="tspan1086"
+         x="18.863367"
+         y="101.36655"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.8715px;font-family:Gentona;-inkscape-font-specification:Gentona;fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">L</tspan></text>
+    <rect
+       style="fill:#f1dc1b;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect1090"
+       width="4.6649437"
+       height="11.041938"
+       x="33.002308"
+       y="95.210701" />
+  </g>
+</svg>

@@ -1,4 +1,5 @@
-# Link4Fun
+![Link4Fun](html/static/images/logo.png)
+===
 
 It's a PoC using Nginx with Lua modules. Check it https://link4.fun.
 
@@ -42,6 +43,7 @@ After install, edit the `/etc/openresty/nginx.conf` file and add:
 user myuser;
 http {
   ...
+  limit_conn_zone $binary_remote_addr zone=link4fun:10m rate=10r/s;
   include /etc/nginx/sites-enabled/*.conf;
 }
 ```

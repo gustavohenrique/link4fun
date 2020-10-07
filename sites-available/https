@@ -34,8 +34,7 @@ server {
     add_header X-XSS-Protection "1; mode=block";
     add_header Strict-Transport-Security "max-age=63072000; includeSubdomains;" always;
 
-    limit_conn perip     10;
-    limit_conn perserver 100;
+    limit_conn link4fun  10;
     limit_rate_after     500k;
     limit_rate           50k;
 

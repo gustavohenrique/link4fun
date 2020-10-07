@@ -1,0 +1,39 @@
+.lf-fit {
+  height: calc(100vh - 3.5rem);
+}
+
+.lf-full-height {
+  height: 100% !important;
+}
+
+.lf-flex-container {
+  display: flex;
+}
+
+.lf-flex-container.lf-flex-columns {
+  flex-direction: column;
+}
+
+.lf-flex-container.lf-justify-between {
+  justify-content: space-between;
+}
+
+.card-footer-item.lf-left {
+  justify-content: flex-start;
+}
+
+.card-footer-item.lf-right {
+  justify-content: flex-end;
+}
+
+.lf-hide {
+  display: none;
+}
+
+.lf-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
