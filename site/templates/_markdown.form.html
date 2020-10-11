@@ -1,0 +1,39 @@
+<form action="/markdown/save" method="post" class="card lf-full-height lf-flex-container lf-flex-columns lf-justify-between">
+  {% if id then %}
+  <input type="hidden" name="id" value="{{ id }}" />
+  {% end %}
+
+  <textarea id="markdown" class="textarea" name="content" placeholder="Paste your markdown here" rows="20">{{ content }}</textarea>
+
+  <footer class="card-footer">
+    <p class="card-footer-item lf-left">
+      <a
+        href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
+        target="_blank"
+        title="Markdown cheatsheet"
+        class="button"
+      >
+        Markdown Cheatsheet
+      </a>
+      <a
+        href="https://getemoji.com/"
+        target="_blank"
+        title="Emoji List"
+        class="button ml-4"
+      >
+        Emoji List
+      </a>
+    </p>
+    <p class="card-footer-item lf-right">
+      <button type="submit" class="button is-info">
+        Save
+      </button>
+    </p>
+  </footer>
+</form>
+
+<style type="text/css">
+.CodeMirror {
+  flex: auto;
+}
+</style>

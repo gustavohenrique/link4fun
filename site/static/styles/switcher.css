@@ -1,0 +1,122 @@
+.switcher {
+    position: relative;
+    width: 165px;
+    height: 42px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+.switcher input {
+    appearance: none;
+    position: relative;
+    width: 140px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #1e1e1e;
+    outline: none;
+}
+.switcher input:before, .switcher input:after {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+.switcher input:before {
+    content: 'ON';
+    left: 16px;
+}
+.switcher input:after {
+    content: 'OFF';
+    right: 16px;
+}
+.switcher label {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 15px;
+}
+.switcher.switcher-1 input {
+    transition: 0.25s -0.1s;
+}
+.switcher.switcher-1 input:checked {
+    background-color: #fff;
+}
+.switcher.switcher-1 input:checked:before {
+    color: #fff;
+    transition: color 0.5s 0.2s;
+}
+.switcher.switcher-1 input:checked:after {
+    color: #ccc;
+    transition: color 0.5s;
+}
+.switcher.switcher-1 input:checked + label {
+    left: 10px;
+    right: 100px;
+    background: #1e1e1e;
+    transition: left 0.5s, right 0.4s 0.2s;
+}
+.switcher.switcher-1 input:not(:checked) {
+    background: #1e1e1e;
+    transition: background 0.5s -0.1s;
+}
+.switcher.switcher-1 input:not(:checked):before {
+    color: #ccc;
+    transition: color 0.5s;
+}
+.switcher.switcher-1 input:not(:checked):after {
+    color: #1e1e1e;
+    transition: color 0.5s 0.2s;
+}
+.switcher.switcher-1 input:not(:checked) + label {
+    left: 100px;
+    right: 10px;
+    background: #fff;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s -0.1s;
+}
+.switcher.switcher-2 {
+    overflow: hidden;
+}
+.switcher.switcher-2 input {
+    transition: background-color 0s 0.5s;
+}
+.switcher.switcher-2 input:before {
+    color: #1e1e1e;
+}
+.switcher.switcher-2 input:after {
+    color: #fff;
+}
+.switcher.switcher-2 input:checked {
+}
+.switcher.switcher-2 input:checked + label {
+    background: #fff;
+    animation: turn-on 0.5s ease-out;
+}
+@keyframes turn-on {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+.switcher.switcher-2 input:not(:checked) {
+}
+.switcher.switcher-2 input:not(:checked) + label {
+    animation: turn-off 0.5s ease-out;
+}
+@keyframes turn-off {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 0%;
+    }
+}
+.switcher.switcher-2 label {
+    top: 0px;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+}
+

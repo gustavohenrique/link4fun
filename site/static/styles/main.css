@@ -1,0 +1,81 @@
+*, html, body {
+    font-family: 'Cabin','Segoe UI',Helvetica,sans-serif;
+}
+
+.lf-fit {
+  height: calc(100vh - 3.5rem);
+}
+
+.lf-full-height {
+  height: 100% !important;
+}
+
+.lf-flex-container {
+  display: flex;
+}
+
+.lf-flex-container.lf-flex-columns {
+  flex-direction: column;
+}
+
+.lf-flex-container.lf-justify-between {
+  justify-content: space-between;
+}
+
+.card-footer-item.lf-left {
+  justify-content: flex-start;
+}
+
+.card-footer-item.lf-right {
+  justify-content: flex-end;
+}
+
+.lf-hide {
+  display: none;
+}
+
+.lf-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lf-toggle-container {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+  margin: 5px 0;
+  row-gap: 20px;
+  text-align: center;
+  height: 40px;
+  align-self: center;
+}
+
+.lf-toggle-container.lf-on {
+    background: white;
+    color: black;
+}
+
+.lf-toggle-container.lf-off {
+    background: black;
+    color: white;
+}
+
+.lf-toggle-container .lf-toggle {
+    border-radius: 15px;
+    flex: 1 0 auto;
+    font-size: 14px;
+}
+
+.lf-toggle.lf-on {
+    background: black;
+    color: white;
+}
+
+.lf-toggle.lf-off {
+    background: white;
+    color: black;
+}

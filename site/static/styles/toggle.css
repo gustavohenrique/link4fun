@@ -1,0 +1,43 @@
+.lf-toggle-control {
+    display: block;
+    position: relative;
+    padding-left: 100px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+.lf-toggle-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.lf-toggle-control input:checked ~ .control {
+    background-color: dodgerblue;
+}
+.lf-toggle-control input:checked ~ .control:after {
+    left: 55px;
+}
+.lf-toggle-control .control {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    height: 30px;
+    width: 80px;
+    border-radius: 15px;
+    background-color: darkgray;
+    transition: background-color 0.15s ease-in;
+}
+.lf-toggle-control .control:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background: white;
+    transition: left 0.15s ease-in;
+}
+

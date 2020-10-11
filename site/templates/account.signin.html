@@ -1,0 +1,32 @@
+{% layout = "base.html" %}
+{-main-}
+{% if not username or username == "" then %}
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Authentication
+          </p>
+        </header>
+        <p class="card-content">
+          Only me, <a href="https://twitter.com/@gustavohenriq" target="_blank">Gustavo Henrique</a>, is allowed to authenticate. Sorry!
+        </p>
+        {(_account.signin.form.html)}
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <div style="display:grid;place-content:center;height:calc(100vh - 150px)" class="is-clipped">
+    <section class="hero is-transparent">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Hi, {{ username }}!
+          </h1>
+        </div>
+      </div>
+    </section>
+  </div>
+  {% end %}
+{-main-}

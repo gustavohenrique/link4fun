@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Link4Fun</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Link4Fun is an URL shortener and tool that you can use to store text online">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=0.9, maximum-scale=2">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://link4.fun/">
+  <meta property="og:title" content="Link4Fun">
+  <meta property="og:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="og:image" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="">
+  <meta property="twitter:url" content="https://link4.fun">
+  <meta property="twitter:title" content="Link4Fun">
+  <meta property="twitter:description" content="Link4fun is an URL shortener and tool that you can use to store text online">
+  <meta property="twitter:image" content="">
+
+  <link rel="stylesheet" href="/static/styles/segoeui.css">
+  <link rel="stylesheet" href="/static/styles/cabin.css">
+  <link rel="stylesheet" href="/static/styles/bulma.min.css">
+  <link rel="stylesheet" href="/static/styles/bulma-prefers-dark.css" />
+
+  {* blocks.css *}
+  <link rel="stylesheet" href="/static/styles/main.css">
+  {* blocks.extracss *}
+</head>
+
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a href="/" class="navbar-item">
+        <img src="/static/images/logo.svg" />
+      </a>
+      <a onclick="toggleMenu(this)" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="menu-mobile" class="navbar-menu lf-hide">
+      <div class="navbar-end">
+        <a href="/shortener" class="navbar-item">URL Shortener</a>
+        <a href="/markdown" class="navbar-item">Markdown Editor</a>
+        <a href="/snippet" class="navbar-item">Text Snippet</a>
+      </div>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a href="/shortener" class="navbar-item">URL Shortener</a>
+        <a href="/markdown" class="navbar-item">Markdown Editor</a>
+        <a href="/snippet" class="navbar-item">Text Snippet</a>
+      </div>
+      <div class="navbar-end">
+        {#
+        <div class="navbar-item lf-toggle-container lf-on">
+          <a href="#" class="lf-toggle lf-on">ON</a>
+          <a href="#" class="lf-toggle lf-off">OFF</a>
+        </div>
+        #}
+        {% if username then %}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            {{ username }}
+          </a>
+          <div class="navbar-dropdown">
+            <a href="/signout" class="navbar-item">
+              Sign out
+            </a>
+          </div>
+        </div>
+        {% else %}
+        <a href="/signin" class="navbar-item">Sign in</a>
+        {% end %}
+      </div>
+    </div>
+  </nav>
+
+  {* blocks.main *}
+
+  {* blocks.extrajs *}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6431766-3"></script>
+  <script src="/static/javascript/main.js"></script>
+</body>
+</html>
