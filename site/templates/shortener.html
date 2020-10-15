@@ -7,4 +7,28 @@
     {(_shortener.form.html)}
   </div>
 </section>
+
+{% if username then %}
+<section class="section">
+  <div class="container table-container">
+    <table class="table is-bordered is-striped is-fullwidth">
+      <thead>
+        <th>ID</th>
+        <th>URL</th>
+        <th>Hits</th>
+      </thead>
+      <tbody>
+        {% for id, card in pairs(cards) do %}
+        <tr>
+          <th>{{ id }}</th>
+          <td>{{ card.long_url }}</td>
+          <td>{{ card.hits }}</td>
+        </tr>
+        {% end %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% end %}
+
 {-main-}

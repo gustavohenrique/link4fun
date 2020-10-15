@@ -18,7 +18,19 @@ end
 
 function M:render_create(route)
     return function(route)
-        route:render("shortener.html", { content = "" })
+        local cards = {}
+        if route.context.username then
+            files = self.deps.fileutils:list_files_from_data_dir("shortener")
+            for _, filename in pairs(files) do
+                local content = self:read(filename)
+                cards[filename] = content
+            end
+        end
+        route:render("shortener.html", {
+            content = "",
+            username = route.username,
+            cards = cards
+        })
     end
 end
 

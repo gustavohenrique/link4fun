@@ -32,4 +32,17 @@ function M:read(filename)
     return content, nil
 end
 
+function M:list_files_from_data_dir(dir)
+    local directory = self.data_dir .. dir
+    local filehandler = assert(io.popen(("find '%s' -mindepth 1 -maxdepth 1 -type f -exec ls -1rt \"{}\" +;"):format(directory), "r"))
+    local list = filehandler:read('*a')
+    filehandler:close()
+    local files = {}
+    for filepath in string.gmatch(list, "[^\r\n]+") do
+        local filename = filepath:match("^.+/(.+)$")
+        table.insert(files, filename)
+    end
+    return files
+end
+
 return M
